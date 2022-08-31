@@ -19,7 +19,7 @@ public class ScoreManager : MonoBehaviour
         if (rightScore >= maxScore)
         {
             GameOver();
-            Debug.Log("Created By : Galih Tyas A");
+            
         }
 
     }
@@ -27,10 +27,11 @@ public class ScoreManager : MonoBehaviour
     public void AddLeftScore(int increment)
     {
         leftScore += increment;
+        ball.ResetBall();
         if (leftScore >= maxScore)
         {
             GameOver();
-            Debug.Log("Created By : Galih Tyas A");
+            
         }
     }
 
