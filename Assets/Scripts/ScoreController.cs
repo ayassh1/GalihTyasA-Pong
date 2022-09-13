@@ -16,4 +16,5 @@ public class ScoreController : MonoBehaviour
         skorKanan.text = manager.rightScore.ToString();
     }
 
+
 }

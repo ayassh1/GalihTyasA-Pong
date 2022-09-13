@@ -17,6 +17,6 @@ public class MainMenuController : MonoBehaviour
 
     public void Credit()
     {
-        Debug.Log("Created By : Galih Tyas Anjari - @ayassh1");
+        SceneManager.LoadScene("Credit");
     }
 }
