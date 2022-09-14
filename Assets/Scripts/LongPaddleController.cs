@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PUSpeedUpController : MonoBehaviour
+public class LongPaddleController : MonoBehaviour
 {
-    public PowerUpManager manager;
+    public LongPaddleManager manager;
     public Collider2D ball;
+    public Collider2D paddle;
     public float magnitude;
     public float spawnDelay;
 
@@ -13,14 +14,14 @@ public class PUSpeedUpController : MonoBehaviour
     {
         if (collision == ball)
         {
-            ball.GetComponent<BallController>().ActivatePUSpeedUp(magnitude);
-            manager.RemovePowerUp(gameObject);
+            paddle.GetComponent<PaddleController>().ActivateLP(magnitude);
+            Destroy(this.gameObject);
             spawnDelay = 0;
         }
-        
+
     }
 
-    private void Update()
+   private void Update()
     {
         if (spawnDelay > 0)
         {
@@ -28,9 +29,7 @@ public class PUSpeedUpController : MonoBehaviour
         }
         else
         {
-            manager.RemovePowerUp(gameObject);
+            manager.RemoveLP(gameObject);
         }
     }
-
-
 }

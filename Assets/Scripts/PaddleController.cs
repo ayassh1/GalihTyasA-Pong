@@ -48,4 +48,9 @@ public class PaddleController : MonoBehaviour
         Debug.Log("TEST: " + movement);
         rig.velocity = movement;
     }
+
+    public void ActivateLP(float magnitude)
+    {
+        rig.angularVelocity *= magnitude;
+    }
 }
