@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     public Vector2 speed;
+    //public Vector2 skala;
     public Vector2 resetPosition;
 
     private Rigidbody2D rig;
@@ -14,6 +15,7 @@ public class BallController : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         rig.velocity = speed;
+       // rig.size = skala;
 
     }
 
@@ -26,5 +28,10 @@ public class BallController : MonoBehaviour
     {
         rig.velocity *= magnitude;
     }
+
+    /*public void ActivateLongPaddle(float magnitude)
+    {
+        rig.scale *= magnitude;
+    }*/
 
 }

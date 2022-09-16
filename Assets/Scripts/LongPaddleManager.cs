@@ -38,7 +38,7 @@ public class LongPaddleManager : MonoBehaviour
 
     public void GenerateRandomLongPaddle(Vector2 position)
     {
-        if(longPaddleList.Count > maxLongPaddleAmount)
+        if(longPaddleList.Count >= maxLongPaddleAmount)
         {
             return;
         }
@@ -46,7 +46,7 @@ public class LongPaddleManager : MonoBehaviour
         if (position.x < longPaddleAreaMin.x ||
             position.x > longPaddleAreaMax.x ||
             position.y < longPaddleAreaMin.y ||
-            position.y > longPaddleAreaMin.y)
+            position.y > longPaddleAreaMax.y)
         {
             return;
         }
@@ -61,17 +61,17 @@ public class LongPaddleManager : MonoBehaviour
         longPaddleList.Add(longPaddle);
     }
 
-    public void RemoveLP(GameObject longPaddle)
+    public void RemoveLongPaddle(GameObject longPaddle)
     {
         longPaddleList.Remove(longPaddle);
         Destroy(longPaddle);
     }
 
-    public void RemoveAllLP()
+    public void RemoveAllLongPaddle()
     {
         while(longPaddleList.Count > 0)
         {
-            RemoveLP(longPaddleList[0]);
+            RemoveLongPaddle(longPaddleList[0]);
         }
     }
 }
