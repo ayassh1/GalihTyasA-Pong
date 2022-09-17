@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LongPaddleController : MonoBehaviour
+public class ScalePaddleController : MonoBehaviour
 {
-    public LongPaddleManager manager;
+    public ScalePaddleManager manager;
     public Collider2D ball;
-    //public Collider2D paddle;
+    public Collider2D leftpaddle;
+    public Collider2D rightpaddle;
     public float magnitude;
     public float spawnDelay;
 
@@ -14,8 +15,10 @@ public class LongPaddleController : MonoBehaviour
     {
         if (collision == ball)
         {
-            ball.GetComponent<BallController>().ActivatePUSpeedUp(magnitude);
-            Destroy(this.gameObject);
+            leftpaddle.GetComponent<PaddleController>().ActivateScalePaddle(magnitude);
+
+            rightpaddle.GetComponent<PaddleController>().ActivateScalePaddle(magnitude);
+            manager.RemoveScalePaddle(gameObject);
             spawnDelay = 0;
         }
 
@@ -29,7 +32,7 @@ public class LongPaddleController : MonoBehaviour
         }
         else
         {
-            manager.RemoveLongPaddle(gameObject);
+            manager.RemoveScalePaddle(gameObject);
         }
     }
 }

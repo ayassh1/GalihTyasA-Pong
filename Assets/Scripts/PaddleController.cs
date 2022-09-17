@@ -49,8 +49,14 @@ public class PaddleController : MonoBehaviour
         rig.velocity = movement;
     }
 
-    public void ActivateLP(float magnitude)
+    public void ActivatePUPaddle(float magnitude)
     {
-        rig.angularVelocity *= magnitude;
+        rig.velocity *= magnitude;
+    }
+
+    public void ActivateScalePaddle(float magnitude)
+    {
+        rig.velocity *= magnitude;
+        //rig.localScale *= magnitude;
     }
 }

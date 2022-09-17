@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PUPaddleController : MonoBehaviour
 {
-    
+
     public PUPaddleManager manager;
     public Collider2D ball;
+    public Collider2D leftpaddle;
+    public Collider2D rightpaddle;
     public float magnitude;
     public float spawnDelay;
 
@@ -14,7 +16,10 @@ public class PUPaddleController : MonoBehaviour
     {
         if (collision == ball)
         {
-            ball.GetComponent<BallController>().ActivatePUSpeedUp(magnitude);
+            leftpaddle.GetComponent<PaddleController>().ActivatePUPaddle(magnitude);
+            
+            rightpaddle.GetComponent<PaddleController>().ActivatePUPaddle(magnitude);
+            
             manager.RemovePowerUpPaddle(gameObject);
             spawnDelay = 0;
         }
